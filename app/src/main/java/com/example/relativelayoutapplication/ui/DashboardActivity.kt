@@ -3,10 +3,13 @@ package com.example.relativelayoutapplication.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.cardview.widget.CardView
 import com.example.relativelayoutapplication.R
+import com.example.relativelayoutapplication.repository.PesagemRepository
 import com.example.relativelayoutapplication.util.calcularIdade
 import com.example.relativelayoutapplication.util.convertBase64ToBitmap
 
@@ -21,6 +24,7 @@ class DashboardActivity : AppCompatActivity() {
     lateinit var tvAltura: TextView
     lateinit var ivPerfil: ImageView
     lateinit var cardNovaPesagem: CardView
+    lateinit var cardHistorico: CardView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,9 +41,15 @@ class DashboardActivity : AppCompatActivity() {
         tvAltura = findViewById(R.id.tv_dashboard_altura)
         ivPerfil = findViewById(R.id.iv_dashboard_imgperfil)
         cardNovaPesagem = findViewById(R.id.cv_pesar_agora)
+        cardHistorico = findViewById(R.id.cv_ver_historico)
 
         cardNovaPesagem.setOnClickListener {
             val intent = Intent(this, PesoActivity::class.java)
+            startActivity(intent)
+        }
+
+        cardHistorico.setOnClickListener {
+            val intent = Intent(this, HistoricoActivity::class.java)
             startActivity(intent)
         }
 

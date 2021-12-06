@@ -33,7 +33,7 @@ class PesoActivity : AppCompatActivity() {
         btnSalvar.setOnClickListener {
             val arquivo = getSharedPreferences("usuario", MODE_PRIVATE)
             val pesagem = arquivo.getString("pesagem", "")
-            val dataPesagem = arquivo.getString("data_pesagem", "")
+            val dataPesagem = arquivo.getString("dataPesagem", "")
             val nivel = arquivo.getString("nivel", "")
 
             val editor = arquivo.edit()
